@@ -19,7 +19,7 @@ pipeline {
             }
         }
 
-        stage('Run Application') {
+        stage('Run Selenium Test') {
             steps {
                 sh 'java -jar target/MyMavenSeleniumApp01-1.0-SNAPSHOT.jar'
             }
@@ -28,10 +28,10 @@ pipeline {
 
     post {
         success {
-            echo 'Build and execution successful!'
+            echo "SUCCESS: Selenium test executed"
         }
         failure {
-            echo 'Build failed!'
+            echo "FAILED: Check logs"
         }
     }
 }
